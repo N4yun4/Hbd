@@ -5,43 +5,65 @@ import { motion } from "framer-motion";
 import { Music, Pause } from "lucide-react";
 
 /**
- * Floating music toggle. Autoplay stays disabled per browser policy —
- * playback only starts on the user's click.
+ * Floating music player. Tries to start the track as soon as the page opens.
+ * Browsers block audio-with-sound until the visitor interacts, so if the
+ * initial play is refused we start it on the first interaction anywhere
+ * (click / key / touch / scroll). The button still lets them pause/resume.
  */
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
-  // Clean up on unmount only. The audio element is created lazily on the
-  // first tap so no request (and no 404) fires just from loading the page.
   useEffect(() => {
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+    const el = new Audio(`${basePath}/music/birthday.mp3`);
+    el.loop = true;
+    el.volume = 0.5;
+    el.preload = "auto";
+    el.addEventListener("play", () => setPlaying(true));
+    el.addEventListener("pause", () => setPlaying(false));
+    audioRef.current = el;
+
+    // Attempt to autoplay immediately.
+    const tryPlay = () => el.play().then(() => true).catch(() => false);
+
+    // Fallback: start on the first user interaction if autoplay was blocked.
+    const events = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
+    const startOnInteract = async () => {
+      const ok = await tryPlay();
+      if (ok) removeListeners();
+    };
+    const removeListeners = () => {
+      events.forEach((e) =>
+        window.removeEventListener(e, startOnInteract)
+      );
+    };
+
+    tryPlay().then((ok) => {
+      if (!ok) {
+        events.forEach((e) =>
+          window.addEventListener(e, startOnInteract, { passive: true })
+        );
+      }
+    });
+
     return () => {
-      audioRef.current?.pause();
+      removeListeners();
+      el.pause();
     };
   }, []);
 
   const toggle = async () => {
-    if (!audioRef.current) {
-      // Prefix the base path so the file resolves when hosted under /Hbd/.
-      const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-      const el = new Audio(`${basePath}/music/birthday.mp3`);
-      el.loop = true;
-      el.volume = 0.5;
-      el.addEventListener("ended", () => setPlaying(false));
-      audioRef.current = el;
-    }
     const el = audioRef.current;
+    if (!el) return;
     try {
-      if (playing) {
-        el.pause();
-        setPlaying(false);
-      } else {
+      if (el.paused) {
         await el.play();
-        setPlaying(true);
+      } else {
+        el.pause();
       }
     } catch {
-      // Playback blocked or file missing — keep the paused state gracefully.
-      setPlaying(false);
+      // Playback blocked or file missing — the play/pause events keep state in sync.
     }
   };
 

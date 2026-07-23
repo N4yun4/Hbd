@@ -49,7 +49,7 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
           className="mt-7 max-w-xl text-base leading-relaxed text-plum-soft sm:text-lg"
         >
           Semoga hari spesialmu dipenuhi kebahagiaan, kesuksesan, dan cerita
-          seru.
+          seru. sorry ya ga bisa rayain baru dikasi tau malam tadi. gilak emng org2 ni org ultah ga dikasi tau gweh 😹.
         </motion.p>
 
         <motion.button

@@ -71,7 +71,7 @@ export default function FinalSection() {
           <span className="mt-2 block text-gold-shimmer">Heri 🎂</span>
         </h2>
         <p className="mt-8 font-display text-2xl italic text-plum-soft sm:text-3xl">
-          Sukses Terus ✨
+          Sukses Selalu ✨
         </p>
 
         <motion.div
@@ -82,7 +82,7 @@ export default function FinalSection() {
           className="mx-auto mt-12 h-px w-40 origin-center bg-gradient-to-r from-transparent via-gold to-transparent"
         />
         <p className="mt-8 text-sm text-plum-soft/70">
-          Dibuat spesial buat Heri 🎉
+          Dibuat spesial buat Heri, Anjay 🎉
         </p>
       </motion.div>
     </section>

@@ -48,20 +48,20 @@ export default function BirthdayCard() {
                 Heri,
               </p>
               <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-plum-soft">
-                <p>Selamat ulang tahun, bro! 🎉</p>
+                <p>Selamat ulang tahun, Cuyyy! 🎉</p>
                 <p>
-                  Semoga tahun ini bawa banyak hal baik — sehat selalu, rezeki
-                  lancar, dan urusan makin dimudahin.
+                  Semoga tahun ini bawa banyak hal baik — tetap bahagia dan sehat selalu, rezekinya selalu
+                  lancar, dan segala urusannya makin dimudahkan.
                 </p>
                 <p>
                   Tetap jadi orang yang keren dan jangan berhenti ngejar
-                  mimpimu.
+                  mimpimu cuy.
                 </p>
-                <p className="font-medium text-plum">Sukses terus, ya! 🎂</p>
+                <p className="font-medium text-plum">Sukses selalu, yaaa! 🎂</p>
               </div>
               <div className="mt-6 flex items-center gap-2 text-gold">
                 <PartyPopper className="h-4 w-4" />
-                <span className="text-sm font-medium">Salam hangat, sahabatmu</span>
+                <span className="text-sm font-medium">Salam, dari org mucil (kata Bela 😹)</span>
               </div>
             </div>
           </motion.button>
