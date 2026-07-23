@@ -26,8 +26,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
+
+      # Enables Pages and configures the deployment source. We do NOT pass
+      # `static_site_generator: next` on purpose — that option tries to parse
+      # and rewrite next.config.mjs and crashes on ESM configs. We set the
+      # base path ourselves via NEXT_PUBLIC_BASE_PATH below.
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: npm ci
