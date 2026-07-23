@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fcfaff;
+  --plum: #3b1f55;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--plum);
+  overflow-x: hidden;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Ambient gradient wash for the whole page */
+.aurora-bg {
+  background:
+    radial-gradient(60% 45% at 15% 12%, rgba(167, 139, 250, 0.22), transparent 60%),
+    radial-gradient(55% 40% at 85% 8%, rgba(249, 168, 212, 0.20), transparent 60%),
+    radial-gradient(70% 55% at 50% 100%, rgba(212, 175, 55, 0.12), transparent 65%),
+    #fcfaff;
+}
+
+/* Gold shimmering text */
+.text-gold-shimmer {
+  background: linear-gradient(
+    100deg,
+    #b8860b 0%,
+    #d4af37 25%,
+    #f6e27a 50%,
+    #d4af37 75%,
+    #b8860b 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Glassmorphism surface */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ebfa;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#c4b5fd, #a78bfa);
+  border-radius: 999px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Card flip helpers */
+.perspective {
+  perspective: 1600px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
