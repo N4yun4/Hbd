@@ -21,7 +21,7 @@ const item = {
 
 export default function Hero({ onOpen }: { onOpen: () => void }) {
   return (
-    <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 text-center">
+    <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-5 text-center sm:px-6">
       <motion.div
         variants={container}
         initial="hidden"
@@ -33,12 +33,12 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-lavender/30 bg-white/60 px-5 py-2 text-sm font-medium tracking-wide text-plum-soft backdrop-blur-sm"
         >
           <Sparkles className="h-4 w-4 text-gold" />
-          A little surprise, just for you
+          Kejutan kecil buat kamu
         </motion.span>
 
         <motion.h1
           variants={item}
-          className="font-display text-5xl font-semibold leading-[1.05] tracking-tight text-plum sm:text-7xl md:text-8xl"
+          className="font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-plum sm:text-7xl md:text-8xl"
         >
           Happy Birthday
           <span className="mt-2 block text-gold-shimmer">Heri 🎉</span>
@@ -49,7 +49,7 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
           className="mt-7 max-w-xl text-base leading-relaxed text-plum-soft sm:text-lg"
         >
           Semoga hari spesialmu dipenuhi kebahagiaan, kesuksesan, dan cerita
-          indah.
+          seru.
         </motion.p>
 
         <motion.button
@@ -60,7 +60,7 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
           className="group mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-lavender via-rose to-gold px-8 py-4 text-base font-semibold text-white shadow-soft transition-shadow hover:shadow-glow focus:outline-none focus-visible:ring-4 focus-visible:ring-lavender/50"
         >
           <Gift className="h-5 w-5 transition-transform group-hover:-rotate-12" />
-          Open Your Surprise
+          Buka Kejutanmu
         </motion.button>
       </motion.div>
 

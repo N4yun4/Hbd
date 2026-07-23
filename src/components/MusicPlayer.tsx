@@ -22,7 +22,9 @@ export default function MusicPlayer() {
 
   const toggle = async () => {
     if (!audioRef.current) {
-      const el = new Audio("/music/birthday.mp3");
+      // Prefix the base path so the file resolves when hosted under /Hbd/.
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+      const el = new Audio(`${basePath}/music/birthday.mp3`);
       el.loop = true;
       el.volume = 0.5;
       el.addEventListener("ended", () => setPlaying(false));

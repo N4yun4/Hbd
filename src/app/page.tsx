@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Hero from "@/components/Hero";
 import BirthdayCard from "@/components/BirthdayCard";
-import Gallery from "@/components/Gallery";
 import Wishes from "@/components/Wishes";
 import FinalSection from "@/components/FinalSection";
 import MusicPlayer from "@/components/MusicPlayer";
@@ -40,7 +39,6 @@ export default function Home() {
           <BirthdayCard />
         </div>
 
-        <Gallery />
         <Wishes />
         <FinalSection />
       </div>

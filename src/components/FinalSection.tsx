@@ -30,7 +30,7 @@ export default function FinalSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden px-6 py-32 sm:py-40">
+    <section className="relative overflow-hidden px-5 py-24 sm:px-6 sm:py-40">
       {/* Floating stars */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         {stars.map((s) => (
@@ -64,14 +64,14 @@ export default function FinalSection() {
         className="relative z-10 mx-auto max-w-2xl text-center"
       >
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
-          Once again
+          Sekali Lagi
         </p>
-        <h2 className="mt-6 font-display text-5xl font-semibold leading-tight tracking-tight text-plum sm:text-7xl">
+        <h2 className="mt-6 font-display text-[2.6rem] font-semibold leading-tight tracking-tight text-plum sm:text-7xl">
           Happy Birthday
           <span className="mt-2 block text-gold-shimmer">Heri 🎂</span>
         </h2>
         <p className="mt-8 font-display text-2xl italic text-plum-soft sm:text-3xl">
-          Keep Shining ✨
+          Sukses Terus ✨
         </p>
 
         <motion.div
@@ -82,7 +82,7 @@ export default function FinalSection() {
           className="mx-auto mt-12 h-px w-40 origin-center bg-gradient-to-r from-transparent via-gold to-transparent"
         />
         <p className="mt-8 text-sm text-plum-soft/70">
-          Dibuat dengan sepenuh hati untuk Heri 💜
+          Dibuat spesial buat Heri 🎉
         </p>
       </motion.div>
     </section>

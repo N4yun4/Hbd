@@ -15,29 +15,29 @@ type Wish = {
 const WISHES: Wish[] = [
   {
     icon: Trophy,
-    title: "Success",
-    text: "Semoga setiap langkahmu membawa pencapaian yang membanggakan.",
+    title: "Sukses",
+    text: "Semoga tiap langkahmu bawa pencapaian yang bikin bangga.",
     from: "#A78BFA",
     to: "#7C5CE0",
   },
   {
     icon: HeartPulse,
-    title: "Health",
-    text: "Semoga selalu sehat, kuat, dan penuh energi setiap hari.",
+    title: "Sehat",
+    text: "Semoga selalu sehat, kuat, dan penuh energi tiap hari.",
     from: "#F9A8D4",
     to: "#EC4899",
   },
   {
     icon: Smile,
-    title: "Happiness",
-    text: "Semoga tawa dan kebahagiaan selalu menemani hari-harimu.",
+    title: "Bahagia",
+    text: "Semoga hari-harimu selalu ditemani tawa dan kebahagiaan.",
     from: "#E8C170",
     to: "#D4AF37",
   },
   {
     icon: Sparkles,
-    title: "Dreams",
-    text: "Semoga semua mimpimu perlahan menjadi kenyataan.",
+    title: "Mimpi",
+    text: "Semoga semua mimpimu pelan-pelan jadi kenyataan.",
     from: "#C4B5FD",
     to: "#A78BFA",
   },
@@ -45,11 +45,11 @@ const WISHES: Wish[] = [
 
 export default function Wishes() {
   return (
-    <section className="relative px-6 py-24 sm:py-28">
+    <section className="relative px-5 py-20 sm:px-6 sm:py-28">
       <SectionHeading
-        eyebrow="Made a wish?"
-        title="Birthday Wishes"
-        subtitle="Empat harapan tulus untuk tahunmu yang baru."
+        eyebrow="Harapan Buat Kamu"
+        title="Empat Harapan"
+        subtitle="Empat harapan tulus buat tahun barumu."
       />
 
       <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

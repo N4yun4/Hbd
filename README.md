@@ -1,59 +1,74 @@
 # 🎂 Happy Birthday Heri
 
-An interactive, elegant birthday surprise website — a digital gift built with a
-warm, premium "Elegant Birthday Memory" theme (soft purple → pink → gold).
+Website ucapan ulang tahun interaktif — sebuah "hadiah digital" dengan tema
+_Elegant Birthday Memory_ (soft purple → pink → gold).
 
-**Live sections:** a confetti-filled hero, a flip-open birthday card, a memory
-gallery with a lightbox, four animated birthday wishes, a floating music player,
-and a closing "Keep Shining" finale under a sky of floating stars.
+**Isi halaman:** hero penuh confetti, kartu ucapan yang bisa dibuka (flip),
+empat kartu harapan beranimasi, pemutar musik mengambang, dan penutup
+"Sukses Terus" di bawah taburan bintang.
 
-## ✨ Features
+## ✨ Fitur
 
-| Section | What it does |
+| Bagian | Isinya |
 | --- | --- |
-| **Hero** | Animated headline reveal, one-shot confetti on load, "Open Your Surprise" button that fires fresh confetti and smooth-scrolls down |
-| **Birthday Card** | A sealed envelope that flips open (3D `rotateY`) to reveal the letter, with hover lift |
-| **Memory Gallery** | Responsive grid, hover zoom, click-to-open modal with keyboard nav (← → Esc) |
-| **Birthday Wishes** | Four glassmorphism cards — Success, Health, Happiness, Dreams — with gradient icon tiles and hover interaction |
-| **Music Player** | Floating play/pause button. Autoplay is disabled (browser policy); audio loads lazily on first tap |
-| **Final Section** | Fade-in finale with ambient floating stars |
-| **Ambient** | Page-wide floating particles + aurora gradient background |
+| **Hero** | Judul muncul beranimasi, confetti saat halaman dibuka, tombol "Buka Kejutanmu" yang memicu confetti baru + scroll halus ke bawah |
+| **Kartu Ucapan** | Amplop tersegel yang membuka (flip 3D `rotateY`) menampilkan pesan, dengan efek hover |
+| **Empat Harapan** | Kartu glassmorphism — Sukses, Sehat, Bahagia, Mimpi — dengan ikon gradient dan interaksi hover |
+| **Music Player** | Tombol play/pause mengambang. Autoplay dinonaktifkan (kebijakan browser); audio dimuat saat pertama diketuk |
+| **Penutup** | Fade-in dengan taburan bintang yang mengambang |
+| **Ambient** | Partikel mengambang + background gradient aurora |
 
-Built for accessibility (keyboard focus rings, `aria` labels, reduced-motion
-support), responsiveness (mobile → desktop), SEO metadata, and smooth scrolling.
+Dibangun dengan memperhatikan aksesibilitas (focus ring, `aria` label,
+dukungan `prefers-reduced-motion`), responsif (mobile → desktop), metadata SEO,
+dan smooth scrolling.
 
-## 🛠️ Tech Stack
+## 🛠️ Teknologi
 
 - **Next.js 15** (App Router) + **React 19**
 - **TypeScript**
 - **Tailwind CSS**
-- **Framer Motion** — animations
-- **Lucide React** — icons
+- **Framer Motion** — animasi
+- **Lucide React** — ikon
 - **Google Fonts** — Fraunces (display) + Plus Jakarta Sans (body)
 
-## 🚀 Getting Started
+## 🚀 Menjalankan di Lokal
 
 ```bash
-npm install       # install dependencies
-npm run dev       # start dev server → http://localhost:3000
-npm run build     # production build
-npm run start     # serve the production build
-npm run lint      # run ESLint
+npm install       # pasang dependency
+npm run dev       # dev server → http://localhost:3000
+npm run build     # build statis → folder out/
+npm run lint      # ESLint
 ```
 
-## 📁 Project Structure
+## 🌐 Hosting di GitHub Pages
+
+Project sudah diatur untuk **static export** (`output: "export"`) dan punya
+workflow GitHub Actions yang otomatis build + deploy.
+
+**Cukup sekali setup:**
+
+1. Push ke branch `main` (workflow ikut ter-push).
+2. Buka repo di GitHub → **Settings → Pages**.
+3. Bagian **Build and deployment → Source**, pilih **GitHub Actions**.
+4. Selesai. Tiap push ke `main`, situs otomatis ter-deploy ke:
+
+   **https://n4yun4.github.io/Hbd/**
+
+> Base path `/Hbd` di-set otomatis oleh workflow lewat `NEXT_PUBLIC_BASE_PATH`,
+> jadi semua aset (termasuk musik) tetap ketemu saat di-host di sub-path.
+
+## 📁 Struktur Project
 
 ```
 src/
 ├── app/
-│   ├── page.tsx          # composes all sections
-│   ├── layout.tsx        # fonts + metadata
-│   ├── globals.css       # theme, glass, shimmer, flip helpers
-│   └── icon.svg          # favicon (birthday cake)
+│   ├── page.tsx          # menyusun semua bagian
+│   ├── layout.tsx        # font + metadata
+│   ├── globals.css       # tema, glass, shimmer, helper flip
+│   └── icon.svg          # favicon (kue ulang tahun)
 └── components/
     ├── Hero.tsx
     ├── BirthdayCard.tsx
-    ├── Gallery.tsx
     ├── Wishes.tsx
     ├── MusicPlayer.tsx
     ├── FinalSection.tsx
@@ -61,17 +76,17 @@ src/
     ├── Particles.tsx
     └── Confetti.tsx
 public/
-├── images/               # memory-1..6 gradient placeholders (swap for photos)
-└── music/                # drop birthday.mp3 here to enable music
+├── music/                # taruh birthday.mp3 di sini untuk mengaktifkan musik
+└── .nojekyll             # agar folder _next disajikan apa adanya di Pages
+.github/workflows/
+└── deploy.yml            # build + deploy otomatis ke GitHub Pages
 ```
 
-## 🎨 Personalize It
+## 🎨 Kustomisasi
 
-- **Photos:** replace `public/images/memory-1.svg … memory-6.svg` with your own
-  images (see `public/images/README.md`).
-- **Music:** add `public/music/birthday.mp3` (see `public/music/README.md`).
-- **Words:** edit the copy directly in each component under `src/components/`.
+- **Musik:** tambahkan `public/music/birthday.mp3` (lihat `public/music/README.md`).
+- **Teks:** ubah langsung di tiap komponen pada `src/components/`.
 
 ---
 
-Made with 💜 for Heri.
+Dibuat spesial buat Heri 🎉
