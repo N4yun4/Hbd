@@ -28,15 +28,25 @@ export default function MusicPlayer() {
     const tryPlay = () => el.play().then(() => true).catch(() => false);
 
     // Fallback: start on the first user interaction if autoplay was blocked.
-    const events = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
-    const startOnInteract = async () => {
-      const ok = await tryPlay();
-      if (ok) removeListeners();
+    // Mobile browsers (iOS Safari / Chrome Android) refuse audio until the
+    // visitor gestures, so we cover the touch/tap/key signals they honor.
+    const events = [
+      "touchstart",
+      "touchend",
+      "pointerdown",
+      "click",
+      "keydown",
+      "scroll",
+    ] as const;
+    // Call play() synchronously inside the gesture (iOS requires this), then
+    // clean up once it actually starts.
+    const startOnInteract = () => {
+      void tryPlay().then((ok) => {
+        if (ok) removeListeners();
+      });
     };
     const removeListeners = () => {
-      events.forEach((e) =>
-        window.removeEventListener(e, startOnInteract)
-      );
+      events.forEach((e) => window.removeEventListener(e, startOnInteract));
     };
 
     tryPlay().then((ok) => {
